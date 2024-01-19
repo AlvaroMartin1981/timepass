@@ -1,6 +1,17 @@
-const express = require('express');
+const express = require('express')
+const router = express.Router()
+
+router.get('/', (req, res) => {
+  const mensaje = req.query.mensaje || ""
+  res.send(`<h1>Bienvenido</h1><p>La hora actual es: ${req.dateType}</p>${mensaje}<a href="/endroute"><button>Entrar</button></a>`)
+})
+
+module.exports = router
+
+
+/*const express = require('express');
 const router = express.Router();
-const validarHoraMiddleware = require('../middlewares/validarHora');
+
 
 router.get('/', (req, res) => {
     res.send(`
@@ -24,4 +35,4 @@ router.use((req, res) => {
     `);
 });
 
-module.exports = router;
+module.exports = router;*/

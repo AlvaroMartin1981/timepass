@@ -1,4 +1,17 @@
 const horaMiddleware = (req, res, next) => {
+    const now = new Date()
+    const hour = now.getHours()
+    const minutes = now.getMinutes()
+    const formatedTime = `${hour}:${minutes}`
+    req.dateType = formatedTime
+    req.hour = hour
+    next()
+  }
+  
+  module.exports = horaMiddleware
+  
+
+/*const horaMiddleware = (req, res, next) => {
     const timeNow = new Date();
     const hours = timeNow.getHours();
     const minutes = timeNow.getMinutes();
@@ -14,4 +27,4 @@ const horaMiddleware = (req, res, next) => {
     next();
 };
 
-module.exports = horaMiddleware;
+module.exports = horaMiddleware;*/
